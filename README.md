@@ -8,6 +8,8 @@ This is based on MrHayato's script.
 Script works on pages with URIs that follow such patterns:
 - \*://steamcommunity.com/id/\*/friends\*
 - \*://steamcommunity.com/profiles/\*/friends\*
+- \*://steamcommunity.com/groups/\*#members\*
+- \*://steamcommunity.com/groups/\*/membersManage\*
 
 Added ability to change API Key to your own in extension's Options.
 
