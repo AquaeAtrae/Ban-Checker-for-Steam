@@ -2,7 +2,7 @@ javascript:(function(){
 	// Allow Steam's dynamic loaded content (e.g. group members list) is loaded
 	window.addEventListener ("load", BanChecker, false);
 	
-	function BanChecker (evt) {
+	function loadBanChecker (evt) {
 		var jsReady = false;
 		var jsInitChecktimer = setInterval (checkForJS_Finish, 500);	// Check if done loading every 0.1s
 		
@@ -16,7 +16,15 @@ javascript:(function(){
 			if (    jsReady		||  document.querySelector ("#memberList .member_block, #memberManageList .member_block, .friendHolder, .friendBlock")
 			) {
 				clearInterval (jsInitChecktimer);	// Stop checking
+				BanChecker(); // call BanChecker once now
 				
+				// then override and augment BindOnHashChange from global.js to call BanChecker after paging
+				
+			}
+		}
+	}
+	
+	function banChecker () {			
 			    // Javascript does not work well with integers greater than 53 bits precision... So we need
 			    // to do our maths using strings.
 			    function getDigit(x, digitIndex) {
@@ -143,7 +151,5 @@ javascript:(function(){
 						makeApiCall(batch, apikey);
 					}
 				});  
-			}
-		}
 	}
 })();
