@@ -1,6 +1,6 @@
 javascript:(function(){
 	// Allow Steam's dynamic loaded content (e.g. group members list) is loaded
-	window.addEventListener ("load", BanChecker, false);
+	window.addEventListener ("load", loadBanChecker, false);
 	
 	function loadBanChecker (evt) {
 		var jsReady = false;
